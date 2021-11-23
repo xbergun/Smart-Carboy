@@ -1,13 +1,17 @@
+import 'package:bixos_project/core/init/injection_container.dart' as dependencyInjection;
 import 'package:bixos_project/feature/bottom_navigation_bar/view/pages/bottom_navigation_bar_page.dart';
 import 'package:bixos_project/feature/bottom_navigation_bar/viewmodel/bottom_navigation_bar_provider.dart';
+import 'package:bixos_project/feature/home/viewmodel/home_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-void main() {
+void main() async {
+  await dependencyInjection.init();
   runApp(
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => BottomNavigationBarProvider()),
+        ChangeNotifierProvider(create: (_) => HomeProvider()),
       ],
       child: const BixosApp(),
     ),
