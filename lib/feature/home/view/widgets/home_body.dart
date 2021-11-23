@@ -2,7 +2,10 @@
 
 import 'package:bixos_project/core/constant/app_color.dart';
 import 'package:bixos_project/core/constant/asset_path.dart';
+import 'package:bixos_project/core/init/injection_container.dart';
+import 'package:bixos_project/feature/home/view/widgets/app_water_card.dart';
 import 'package:bixos_project/core/utils/screen_size.dart';
+import 'package:bixos_project/feature/home/viewmodel/home_provider.dart';
 import 'package:flutter/material.dart';
 
 class HomeBody extends StatelessWidget {
@@ -11,7 +14,7 @@ class HomeBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: ScreenSize().dynamicHeight(.74),
+      height: ScreenSize().dynamicHeight(.75),
       decoration: BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topCenter,
@@ -46,42 +49,9 @@ class HomeBody extends StatelessWidget {
     return GridView.builder(
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
       itemBuilder: (BuildContext context, int index) {
-        return waterCard();
+        return AppWaterCard(index: index);
       },
-      itemCount: 15,
-    );
-  }
-
-  Widget waterCard() {
-    return Padding(
-      padding: EdgeInsets.only(
-        top: ScreenSize().dynamicHeight(.01),
-        right: ScreenSize().dynamicHeight(.007),
-        left: ScreenSize().dynamicHeight(.007),
-      ),
-      child: Container(
-        height: ScreenSize().dynamicWidth(.241),
-        width: ScreenSize().dynamicWidth(.241),
-        decoration: BoxDecoration(
-          border: Border.all(
-            color: AppColors.green,
-            style: BorderStyle.solid,
-          ),
-          borderRadius: BorderRadius.circular(6),
-          gradient: RadialGradient(
-            colors: [
-              AppColors.white,
-              AppColors.gradientRadial,
-            ],
-          ),
-          image: DecorationImage(
-            image: AssetImage(
-              AssetsPath().backgroundPNG,
-            ),
-            fit: BoxFit.fitWidth,
-          ),
-        ),
-      ),
+      itemCount: serviceLocator<HomeProvider>().waterCarboys.length,
     );
   }
 }
