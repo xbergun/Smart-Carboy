@@ -11,4 +11,10 @@ class AppTextStyles {
     fontWeight: FontWeight.w900,
     fontStyle: FontStyle.normal,
   );
+  static TextStyle panton30Px950 = TextStyle(
+    color: AppColors.lightBlue,
+    fontSize: ScreenSize().dynamicWidth(.07),
+    fontWeight: FontWeight.w900,
+    fontStyle: FontStyle.normal,
+  );
 }
