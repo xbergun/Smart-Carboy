@@ -8,4 +8,6 @@ class AppColors {
   static const gradientBlueTwo = Color(0xFFE2F2FC);
   static const gradientRadial = Color(0xFFD6EBF4);
   static const green = Color(0xFF94C11F);
+  static const blue = Color(0xFF118ABF);
+  static const blueGradient = Color(0xFF06AEF5);
 }
