@@ -4,6 +4,7 @@ import 'package:bixos_project/feature/bottom_navigation_bar/viewmodel/bottom_nav
 import 'package:bixos_project/feature/home/viewmodel/home_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'core/utils/router.dart' as router;
 
 void main() async {
   await dependencyInjection.init();
@@ -25,6 +26,7 @@ class BixosApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Bixos',
+      onGenerateRoute: router.generateRoute,
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
