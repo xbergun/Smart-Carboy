@@ -81,8 +81,8 @@ class AppWaterCard extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(8),
                                   color: AppColors.white,
                                 ),
-                                height: ScreenSize().dynamicHeight(.03),
-                                width: ScreenSize().dynamicHeight(.03),
+                                height: ScreenSize().dynamicHeight(.04),
+                                width: ScreenSize().dynamicHeight(.04),
                                 child: Icon(
                                   Icons.exposure_minus_1_rounded,
                                   color: AppColors.darkblue,
@@ -98,8 +98,8 @@ class AppWaterCard extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(8),
                                   color: AppColors.white,
                                 ),
-                                height: ScreenSize().dynamicHeight(.03),
-                                width: ScreenSize().dynamicHeight(.03),
+                                height: ScreenSize().dynamicHeight(.04),
+                                width: ScreenSize().dynamicHeight(.04),
                                 child: Icon(
                                   Icons.plus_one_rounded,
                                   color: AppColors.darkblue,
