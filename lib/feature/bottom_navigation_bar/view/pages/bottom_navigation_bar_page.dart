@@ -5,6 +5,7 @@ import 'package:bixos_project/core/constant/asset_path.dart';
 import 'package:bixos_project/core/sharedWidgets/app_svg_icon.dart';
 import 'package:bixos_project/core/utils/screen_size.dart';
 import 'package:bixos_project/feature/bottom_navigation_bar/view/widgets/public_app_bar.dart';
+import 'package:bixos_project/feature/bottom_navigation_bar/view/widgets/public_app_drawer.dart';
 import 'package:bixos_project/feature/bottom_navigation_bar/viewmodel/bottom_navigation_bar_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -18,6 +19,7 @@ class BottomNavigationBarPage extends StatelessWidget {
     return Consumer<BottomNavigationBarProvider>(
       builder: (BuildContext context, BottomNavigationBarProvider bottomNavigationBarProvider, Widget? widget) {
         return Scaffold(
+            endDrawer: PublicAppDrawer(),
             appBar: PublicAppBar(),
             body: bottomNavigationBarProvider.bodies[bottomNavigationBarProvider.currentIndex],
             bottomNavigationBar: SizedBox(

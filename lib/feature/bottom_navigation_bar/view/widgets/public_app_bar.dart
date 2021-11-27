@@ -3,8 +3,10 @@
 import 'package:bixos_project/core/constant/app_color.dart';
 import 'package:bixos_project/core/constant/app_text_styles.dart';
 import 'package:bixos_project/core/constant/asset_path.dart';
+import 'package:bixos_project/core/init/injection_container.dart';
 import 'package:bixos_project/core/sharedWidgets/app_svg_icon.dart';
 import 'package:bixos_project/core/utils/screen_size.dart';
+import 'package:bixos_project/feature/bottom_navigation_bar/viewmodel/bottom_navigation_bar_provider.dart';
 import 'package:flutter/material.dart';
 
 class PublicAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -38,9 +40,14 @@ class PublicAppBar extends StatelessWidget implements PreferredSizeWidget {
       centerTitle: false,
       elevation: 0,
       actions: [
-        Padding(
-          padding: EdgeInsets.only(right: ScreenSize().dynamicWidth(.07)),
-          child: AppSvgIcon(assetPath: AssetsPath().menuSVG, percent: .03),
+        GestureDetector(
+          onTap: () {
+            Scaffold.of(context).openEndDrawer();
+          },
+          child: Padding(
+            padding: EdgeInsets.only(right: ScreenSize().dynamicWidth(.07)),
+            child: AppSvgIcon(assetPath: AssetsPath().menuSVG, percent: .03),
+          ),
         ),
       ],
     );
