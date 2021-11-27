@@ -14,7 +14,7 @@ class HomeBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: ScreenSize().dynamicHeight(.75),
+      height: ScreenSize().dynamicHeight(.80),
       decoration: BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topCenter,
