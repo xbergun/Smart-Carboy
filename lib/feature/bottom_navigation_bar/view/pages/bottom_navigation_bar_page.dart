@@ -4,6 +4,7 @@ import 'package:bixos_project/core/constant/app_color.dart';
 import 'package:bixos_project/core/constant/asset_path.dart';
 import 'package:bixos_project/core/sharedWidgets/app_svg_icon.dart';
 import 'package:bixos_project/core/utils/screen_size.dart';
+import 'package:bixos_project/feature/bottom_navigation_bar/domain/entities/bottom_navigation_bar_state.dart';
 import 'package:bixos_project/feature/bottom_navigation_bar/view/widgets/public_app_bar.dart';
 import 'package:bixos_project/feature/bottom_navigation_bar/view/widgets/public_app_drawer.dart';
 import 'package:bixos_project/feature/bottom_navigation_bar/viewmodel/bottom_navigation_bar_provider.dart';
@@ -19,42 +20,43 @@ class BottomNavigationBarPage extends StatelessWidget {
     return Consumer<BottomNavigationBarProvider>(
       builder: (BuildContext context, BottomNavigationBarProvider bottomNavigationBarProvider, Widget? widget) {
         return Scaffold(
-            endDrawer: PublicAppDrawer(),
-            appBar: PublicAppBar(),
-            body: bottomNavigationBarProvider.bodies[bottomNavigationBarProvider.currentIndex],
-            bottomNavigationBar: SizedBox(
-              height: ScreenSize().dynamicHeight(.12),
-              child: BottomNavigationBar(
-                backgroundColor: AppColors.darkblue,
-                currentIndex: bottomNavigationBarProvider.currentIndex,
-                onTap: (int index) {
-                  bottomNavigationBarProvider.currentIndex = index;
-                },
-                items: [
-                  BottomNavigationBarItem(
-                    icon: AppSvgIcon(
-                      assetPath: AssetsPath().shopSVG,
-                      percent: .03,
-                    ),
-                    label: '',
+          backgroundColor: bottomNavigationBarProvider.selectedBarState.backgroundColorScaffold(),
+          endDrawer: PublicAppDrawer(),
+          appBar: PublicAppBar(),
+          body: bottomNavigationBarProvider.selectedBarState.buildBody(),
+          bottomNavigationBar: SizedBox(
+            height: ScreenSize().dynamicHeight(.12),
+            child: BottomNavigationBar(
+              backgroundColor: AppColors.darkblue,
+              onTap: (int index) {
+                bottomNavigationBarProvider.routePage(index);
+              },
+              items: [
+                BottomNavigationBarItem(
+                  icon: AppSvgIcon(
+                    assetPath: AssetsPath().shopSVG,
+                    percent: .03,
                   ),
-                  BottomNavigationBarItem(
-                    icon: AppSvgIcon(
-                      assetPath: AssetsPath().homeSVG,
-                      percent: .03,
-                    ),
-                    label: '',
+                  label: '',
+                ),
+                BottomNavigationBarItem(
+                  icon: AppSvgIcon(
+                    assetPath: AssetsPath().homeSVG,
+                    percent: .03,
                   ),
-                  BottomNavigationBarItem(
-                    icon: AppSvgIcon(
-                      assetPath: AssetsPath().settingsSVG,
-                      percent: .03,
-                    ),
-                    label: '',
+                  label: '',
+                ),
+                BottomNavigationBarItem(
+                  icon: AppSvgIcon(
+                    assetPath: AssetsPath().settingsSVG,
+                    percent: .03,
                   ),
-                ],
-              ),
-            ));
+                  label: '',
+                ),
+              ],
+            ),
+          ),
+        );
       },
     );
   }
