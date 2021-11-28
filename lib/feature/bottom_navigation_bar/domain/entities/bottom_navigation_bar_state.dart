@@ -1,6 +1,7 @@
 // ignore_for_file: constant_identifier_names
 
 import 'package:bixos_project/core/constant/app_color.dart';
+import 'package:bixos_project/core/error/exception/general_exception.dart';
 import 'package:bixos_project/feature/home/view/widgets/home_body.dart';
 import 'package:bixos_project/feature/settings/view/widgets/settings_body.dart';
 import 'package:bixos_project/feature/shop/view/widgets/shop_body.dart';
@@ -29,7 +30,7 @@ extension BottomNavigationBarStateExtension on BottomNavigationBarState {
       case 2:
         return BottomNavigationBarState.SETTINGS;
       default:
-        return BottomNavigationBarState.HOME;
+        throw IllegalPageNumberException();
     }
   }
 
