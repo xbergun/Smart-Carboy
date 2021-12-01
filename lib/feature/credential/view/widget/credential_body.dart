@@ -70,7 +70,7 @@ class CredentialBody extends StatelessWidget {
                   hintText: 'Şifre',
                 ),
                 AppFiiledButton(
-                  onTap: () => Go.to.page(BottomNavigationBarPageRoute),
+                  onTap: () => Go.to.pageAndRemoveUntil(BottomNavigationBarPageRoute),
                   buttonColor: AppColors.white,
                   buttonText: "Giriş Yap",
                   buttonTextStyle: AppTextStyles.roboto16Px700,
