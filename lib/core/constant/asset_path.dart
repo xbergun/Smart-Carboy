@@ -15,5 +15,7 @@ class AssetsPath {
   final String settingsSVG = "assets/images/settings.svg";
 
   //!PNG
+  final String smartCarboyLogoPNG = "assets/images/smart_carboy_logo.png";
   final String backgroundPNG = "assets/images/background.png";
+  final String backgroundImageLoginPNG = "assets/images/background_image_login.png";
 }

@@ -1,6 +1,7 @@
 import 'package:bixos_project/core/init/injection_container.dart' as dependencyInjection;
-import 'package:bixos_project/feature/bottom_navigation_bar/view/pages/bottom_navigation_bar_page.dart';
+import 'package:bixos_project/core/keys/global_key.dart';
 import 'package:bixos_project/feature/bottom_navigation_bar/viewmodel/bottom_navigation_bar_provider.dart';
+import 'package:bixos_project/feature/credential/view/page/credential_page.dart';
 import 'package:bixos_project/feature/home/viewmodel/home_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -26,12 +27,13 @@ class BixosApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Bixos',
+      navigatorKey: GlobalContextKey.instance.globalKey,
       onGenerateRoute: router.generateRoute,
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const BottomNavigationBarPage(),
+      home: const CredentialPage(),
     );
   }
 }

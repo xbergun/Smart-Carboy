@@ -16,7 +16,6 @@ class BottomNavigationBarPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ScreenSize().screenSize = MediaQuery.of(context).size;
     return Consumer<BottomNavigationBarProvider>(
       builder: (BuildContext context, BottomNavigationBarProvider bottomNavigationBarProvider, Widget? widget) {
         return Scaffold(

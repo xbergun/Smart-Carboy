@@ -6,15 +6,17 @@ import 'package:bixos_project/core/utils/screen_size.dart';
 import 'package:flutter/material.dart';
 
 class AppTextField extends StatelessWidget {
-  const AppTextField({Key? key, this.hintText, this.width, required this.icon, this.widthContainer}) : super(key: key);
+  const AppTextField({Key? key, this.hintText, this.width, required this.icon, this.widthContainer, this.height})
+      : super(key: key);
   final String? hintText;
   final double? width;
+  final double? height;
   final IconData icon;
   final double? widthContainer;
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 40,
+      height: height ?? 40,
       width: widthContainer ?? ScreenSize().dynamicWidth(.9),
       margin: EdgeInsets.only(bottom: 10),
       decoration: BoxDecoration(

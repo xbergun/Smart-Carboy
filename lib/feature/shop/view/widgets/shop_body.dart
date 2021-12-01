@@ -34,11 +34,14 @@ class ShopBody extends StatelessWidget {
           children: [
             shopAppbar(),
             listViewBuilderShop(),
-            AppFiiledButton(
-              buttonText: 'Toplam Tutar: ${homeProvider.totalPrice.toStringAsFixed(2)} TL',
-              buttonColor: AppColors.white,
-              buttonTextStyle: AppTextStyles.roboto16Px700.copyWith(
-                color: AppColors.darkblue,
+            Padding(
+              padding: const EdgeInsets.only(top: 8.0),
+              child: AppFiiledButton(
+                buttonText: 'Toplam Tutar: ${homeProvider.totalPrice.toStringAsFixed(2)} TL',
+                buttonColor: AppColors.white,
+                buttonTextStyle: AppTextStyles.roboto16Px700.copyWith(
+                  color: AppColors.darkblue,
+                ),
               ),
             ),
             SizedBox(
